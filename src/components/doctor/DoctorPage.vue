@@ -42,7 +42,7 @@
                       <v-text-field v-model="editedItem.age" label="Age"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="10">
-                      <v-text-field v-model="editedItem.address" label="Adddress"></v-text-field>
+                      <v-text-field v-model="editedItem.address" label="Address"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="10">
                       <v-text-field v-model="editedItem.gender" label="Gender"></v-text-field>
@@ -74,9 +74,6 @@
       <template v-slot:item.actions="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
         <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">Reset</v-btn>
       </template>
     </v-data-table>
   </v-container>
@@ -141,21 +138,6 @@ export default {
   },
 
   methods: {
-    initialize() {
-      const doctors = [
-        {
-          name: "Mikee Escueta",
-          specialization: "Pulmonology"
-        },
-        {
-          name: "MJ Lonzame",
-          specialization: "Cardiology"
-        }
-      ];
-      this.$store.commit("addDoctor", doctors[0]);
-      this.$store.commit("addDoctor", doctors[1]);
-    },
-
     editItem(item) {
       this.editedIndex = this.doctors.indexOf(item);
       this.editedItem = Object.assign({}, item);
@@ -192,13 +174,11 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        // Object.assign(this.doctors[this.editedIndex], this.editedItem);
         this.$store.dispatch(
           "updateDoctor",
           Object.assign(this.doctors[this.editedIndex], this.editedItem)
         );
       } else {
-        // this.doctors.push(this.editedItem);
         this.$store.dispatch("addDoctor", this.editedItem);
       }
       this.close();

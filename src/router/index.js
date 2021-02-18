@@ -10,6 +10,7 @@ import DoctorAppointments from '../components/appointment/DoctorAppointments.vue
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [{
     path: '/',
     name: 'Home',
@@ -20,7 +21,7 @@ export default new Router({
     component: DoctorPage,
   },
   {
-    path: '/patient]',
+    path: '/patient',
     name: 'Patient',
     component: PatientPage,
   },

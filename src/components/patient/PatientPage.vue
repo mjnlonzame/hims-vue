@@ -38,7 +38,7 @@
                       <v-text-field v-model="editedItem.age" label="Age"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="10">
-                      <v-text-field v-model="editedItem.address" label="Adddress"></v-text-field>
+                      <v-text-field v-model="editedItem.address" label="Address"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="10">
                       <v-text-field v-model="editedItem.gender" label="Gender"></v-text-field>
